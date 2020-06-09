@@ -8,7 +8,9 @@ import React from 'react';
  * 
  * @param {ARRAY} actions 
  *  -> actions to be provided via the provider for this newly created context 
- *  -> { addBlogPost: (dispatch) => { return () => {} }}
+ *  -> each action must take in dispatch and return a function that calls dispatch
+ *  -> i.e. actions = { addBlogPost }
+ *      where addBlogPost = (dispatch) => { return () => { dispatch({ type: 'E.G.' }) } }
  * 
  * @param {*} initialState 
  *  -> second parameter for React.useReducer, i.e. [], {}, '', etc.
