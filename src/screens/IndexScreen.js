@@ -25,7 +25,7 @@ const IndexScreen = ({ navigation }) => {
                                 <TouchableOpacity onPress={() => handleDelete(item.id)} style={styles.iconContainer}>
                                     <EvilIcons name="trash" style={styles.icon} />
                                 </TouchableOpacity>
-                                <Text style={styles.title}>{item.title} - {item.id}</Text>
+                                <Text style={styles.title}>{item.title}</Text>
                             </View>
                         </TouchableOpacity>
                     )

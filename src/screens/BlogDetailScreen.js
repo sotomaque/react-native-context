@@ -8,6 +8,7 @@ import { Context as BlogContext } from '../context/BlogContext';
 const BlogDetailScreen = ({ navigation }) => {
 
     const { state } = React.useContext(BlogContext);
+    
     const blogPost = state.find((blogPost) => blogPost.id === navigation.getParam('id'));
 
     const [title, setTitle] = React.useState(blogPost.title);

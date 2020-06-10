@@ -6,16 +6,20 @@ import { Context as BlogContext } from '../context/BlogContext';
 
 const EditBlogPostScreen = ({ navigation }) => {
 
-    const { state } = React.useContext(BlogContext);
-
-    const blogPost = state.find((blogPost) => blogPost.id === navigation.getParam('id'));
+    const { state, editBlogPost } = React.useContext(BlogContext);
+    const id = navigation.getParam('id');
+    const blogPost = state.find((blogPost) => blogPost.id === id);
 
     const [title, setTitle] = React.useState(blogPost.title);
     const [content, setContent] = React.useState(blogPost.content);
     const [loading, setLoading] = React.useState(false)
 
     const handleSavePost = () => {
-        setLoading(true)
+        setLoading(true);
+        editBlogPost(id, title, content, () => {
+            navigation.navigate("Index")
+        });
+        setLoading(false);
     }
 
     return (
